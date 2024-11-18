@@ -17,7 +17,7 @@ public class SalvarCliente {
     }
 
     public Cliente execute(String nome, String cpf, String email) {
-        Cliente cliente = new Cliente(UUID.randomUUID(), nome, cpf, email, Instant.now());
+        Cliente cliente = new Cliente(nome, cpf, email, Instant.now());
         return this.clienteRepository.saveCliente(cliente);
     }
 

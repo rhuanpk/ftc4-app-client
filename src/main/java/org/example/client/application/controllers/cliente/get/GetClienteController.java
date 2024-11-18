@@ -23,7 +23,7 @@ public class GetClienteController {
 
     @GetMapping("/{id}")
     @Operation(tags = "Clientes")
-    public ResponseEntity<Object> get(@PathVariable("id") UUID id) {
+    public ResponseEntity<Object> get(@PathVariable("id") String id) {
         ClienteController clienteController = new ClienteController(this.clienteRepositoryInterface);
         return new ResponseEntity<>(clienteController.get(id), HttpStatus.OK);
     }

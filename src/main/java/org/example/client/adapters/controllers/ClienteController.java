@@ -17,7 +17,7 @@ public class ClienteController {
         this.clienteRepository = clienteRepository;
     }
 
-    public Object get(UUID id) {
+    public Object get(String id) {
         GetCliente getCliente = new GetCliente(this.clienteRepository);
         Cliente cliente = getCliente.execute(id);
         return ClientePresenter.toObject(cliente);

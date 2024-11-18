@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public interface ClienteRepositoryInterface {
 
-    Cliente getClienteById(UUID id);
+    Cliente getClienteById(String id);
 
     Cliente getClienteByCpf(String cpf);
 

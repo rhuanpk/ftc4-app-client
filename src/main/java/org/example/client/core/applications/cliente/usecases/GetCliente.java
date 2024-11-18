@@ -16,7 +16,7 @@ public class GetCliente {
         this.clienteRepository = clienteRepository;
     }
 
-    public Cliente execute(UUID id) {
+    public Cliente execute(String id) {
         Cliente cliente = this.clienteRepository.getClienteById(id);
         if (cliente == null) {
             throw new EntityNotFoundException("Cliente não encontrado");

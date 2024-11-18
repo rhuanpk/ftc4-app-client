@@ -19,7 +19,7 @@ public class ClienteGateway implements ClienteRepositoryInterface {
     private final ModelMapper modelMapper;
 
     @Override
-    public Cliente getClienteById(UUID id) {
+    public Cliente getClienteById(String id) {
         ClienteEntity entity = modelMapper.map(clienteRepository.findById(id), ClienteEntity.class);
         if (entity == null) {
             return null;
