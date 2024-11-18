@@ -1,26 +1,14 @@
 package org.example.client.application.driven.entities.cliente;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.UUID;
 
-import org.hibernate.annotations.CreationTimestamp;
-
-@Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "TB_CLIENTE")
+@Document(collection = "TB_CLIENTE")
 public class ClienteEntity {
 
     @Id
@@ -32,7 +20,7 @@ public class ClienteEntity {
 
     private String email;
 
-    @CreationTimestamp
+    @CreatedDate
     private Instant dataCriacao;
 
 }
