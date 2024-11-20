@@ -23,7 +23,7 @@ public class CreateClienteController {
     @Operation(tags = "Clientes")
     public ResponseEntity<Object> create(@RequestBody ClienteCreateRequest request) {
         ClienteController clienteController = new ClienteController(this.clienteRepositoryInterface);
-        return new ResponseEntity<>(clienteController.salvar(request.nome(), request.cpf(), request.email()), HttpStatus.OK);
+        return new ResponseEntity<>(clienteController.salvar(request.nome(), request.cpf(), request.email()), HttpStatus.CREATED);
     }
 
 }
