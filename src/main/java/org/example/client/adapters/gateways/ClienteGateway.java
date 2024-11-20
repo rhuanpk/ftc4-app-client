@@ -9,22 +9,20 @@ import org.example.client.core.domain.cliente.Cliente;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Component
 @AllArgsConstructor
 public class ClienteGateway implements ClienteRepositoryInterface {
 
-    private final ClienteRepository clienteRepository;
-    private final ModelMapper modelMapper;
+    private ClienteRepository clienteRepository;
+    private ModelMapper modelMapper;
 
     @Override
     public Cliente getClienteById(String id) {
-        ClienteEntity entity = modelMapper.map(clienteRepository.findById(id), ClienteEntity.class);
-        if (entity == null) {
-            return null;
-        }
-        return modelMapper.map(entity, Cliente.class);
+        Optional<ClienteEntity> clienteEntity = clienteRepository.findById(id);
+        return clienteEntity.map(entity -> modelMapper.map(entity, Cliente.class)).orElse(null);
     }
 
     @Override
