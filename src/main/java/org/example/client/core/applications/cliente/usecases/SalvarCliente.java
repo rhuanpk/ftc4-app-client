@@ -1,12 +1,10 @@
 package org.example.client.core.applications.cliente.usecases;
 
 
-
 import org.example.client.core.applications.cliente.repositories.ClienteRepositoryInterface;
 import org.example.client.core.domain.cliente.Cliente;
 
 import java.time.Instant;
-import java.util.UUID;
 
 public class SalvarCliente {
 

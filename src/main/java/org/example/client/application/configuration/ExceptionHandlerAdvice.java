@@ -2,18 +2,12 @@ package org.example.client.application.configuration;
 
 
 import org.example.client.core.applications.exception.EntityNotFoundException;
-import org.example.client.core.applications.exception.RegraDeNegocioException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ExceptionHandlerAdvice {
-
-    @ExceptionHandler(RegraDeNegocioException.class)
-    public ResponseEntity<String> handleRegraDeNegocioException(RegraDeNegocioException ex) {
-        return ResponseEntity.badRequest().body(ex.getMessage());
-    }
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<String> handleEntityNotfound(EntityNotFoundException ex) {
