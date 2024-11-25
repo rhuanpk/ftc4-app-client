@@ -10,12 +10,8 @@ services:
       ports:
          - "8080:8080"
       environment:
-         SPRING_DATA_MONGODB_HOST: ${SPRING_DATA_MONGODB_HOST:-mongo}
-         SPRING_DATA_MONGODB_PORT: ${SPRING_DATA_MONGODB_PORT:-27017}
+         SPRING_DATA_MONGODB_URI: ${SPRING_DATA_MONGODB_URI:-mongodb+srv://root:root@cliente-cluster.z5iuh.mongodb.net/?retryWrites=true&w=majority&appName=cliente-cluster}
          SPRING_DATA_MONGODB_DATABASE: ${SPRING_DATA_MONGODB_DATABASE:-cliente}
-         SPRING_DATA_MONGODB_USERNAME: ${SPRING_DATA_MONGODB_USERNAME:-root}
-         SPRING_DATA_MONGODB_PASSWORD: ${SPRING_DATA_MONGODB_PASSWORD:-root}
-         SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE: ${SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE:-admin}
       depends_on:
          - mongo
       networks:
