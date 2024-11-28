@@ -1,0 +1,29 @@
+version: "3"
+
+networks:
+   app-network:
+      driver: bridge
+
+services:
+   app-client:
+      build: .
+      ports:
+         - "8080:8080"
+      environment:
+         SPRING_DATA_MONGODB_URI: ${SPRING_DATA_MONGODB_URI:-mongodb+srv://root:root@cliente-cluster.z5iuh.mongodb.net/?retryWrites=true&w=majority&appName=cliente-cluster}
+         SPRING_DATA_MONGODB_DATABASE: ${SPRING_DATA_MONGODB_DATABASE:-cliente}
+      depends_on:
+         - mongo
+      networks:
+         - app-network
+
+   mongo:
+      image: mongo:latest
+      ports:
+         - "27017:27017"
+      environment:
+         MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-root}
+         MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-root}
+         MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-admin}
+      networks:
+         - app-network
