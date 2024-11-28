@@ -11,6 +11,7 @@ import org.mockito.MockedStatic;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -25,6 +26,7 @@ import static org.mockito.Mockito.mockStatic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@ActiveProfiles("test")
 @SpringBootTest
 class CreateClienteControllerTest {
 
@@ -63,7 +65,6 @@ class CreateClienteControllerTest {
         MockitoAnnotations.openMocks(this);
         CreateClienteController createClienteController = new CreateClienteController(clienteRepositoryInterface);
         this.mockMvc = MockMvcBuilders.standaloneSetup(createClienteController).build();
-
 
         cliente = new Cliente();
         cliente.setId("838b1e25-a271-4816-a16b-a585470d84ed");
