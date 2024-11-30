@@ -1,6 +1,6 @@
 ## Serviço de cliente
 
-Service que gerencia clientes em uma plataforma de e-commerce. Ele oferece funcionalidades para criar, atualizar, excluir e listar clientes.
+Service que gerencia clientes em uma plataforma de e-commerce. Ele oferece funcionalidades para criar, atualizar e listar clientes.
 
 
 # Testes
